@@ -13,6 +13,11 @@ module IRails
       @kernel_dir = File.join(File.expand_path(ipython_dir), 'kernels', 'rails')
       @kernel_file = File.join(@kernel_dir, 'kernel.json')
       @irails_path = File.expand_path $0
+
+      require './config/boot'
+      require './config/application'
+
+      Rails.application.require_environment!
     end
 
     def run
@@ -116,7 +121,7 @@ Add `gem 'irails'` to your Gemfile to fix it.} unless Bundler.definition.depende
     def register_kernel
       FileUtils.mkpath(@kernel_dir)
       File.write(@kernel_file, MultiJson.dump(argv: [ @irails_path, 'kernel', '{connection_file}' ],
-                                              display_name: "Rails #{Rails.version}", language: 'ruby'))
+                                              display_name: "Rails #{::Rails.version}", language: 'ruby'))
       FileUtils.copy(Dir[File.join(__dir__, 'assets', '*')], @kernel_dir) rescue nil
     end
 

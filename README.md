@@ -1,5 +1,3 @@
-***The current master branch and gem version >= 0.2 are compatible with IPython3/Jupyter. If you require IPython2 support, please install an older gem version < 0.2 or use the branch ipython2***
-
 # IRails
 
 This is a Ruby kernel for IPython/Jupyter and is part of [SciRuby](http://scirails.com/). You can try it at [try.jupyter.org](http://try.jupyter.org/).
