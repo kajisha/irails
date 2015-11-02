@@ -19,7 +19,7 @@ module IRails
       case @args.first
       when 'version', '-v', '--version'
         require 'irails/version'
-        puts "IRails #{IRails::VERSION}, Ruby #{RUBY_VERSION}"
+        puts "IRails #{IRails::VERSION}, Rails #{Rails.version}"
       when 'help', '-h', '--help'
         print_help
       when 'register'
@@ -116,7 +116,7 @@ Add `gem 'irails'` to your Gemfile to fix it.} unless Bundler.definition.depende
     def register_kernel
       FileUtils.mkpath(@kernel_dir)
       File.write(@kernel_file, MultiJson.dump(argv: [ @irails_path, 'kernel', '{connection_file}' ],
-                                              display_name: "Ruby #{RUBY_VERSION}", language: 'ruby'))
+                                              display_name: "Rails #{Rails.version}", language: 'ruby'))
       FileUtils.copy(Dir[File.join(__dir__, 'assets', '*')], @kernel_dir) rescue nil
     end
 
