@@ -23,12 +23,12 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 2.1.0'
 
-  s.add_development_dependency 'rake', '>= 10.4'
-  s.add_development_dependency 'minitest', '>= 5.6'
+  s.add_development_dependency 'rake'
+  s.add_development_dependency 'minitest'
 
-  s.add_runtime_dependency 'bond', '>= 0.5'
-  s.add_runtime_dependency 'rbczmq', '>= 1.7'
-  s.add_runtime_dependency 'multi_json', '>= 1.11'
-  s.add_runtime_dependency 'mimemagic', '>= 0.3'
+  s.add_runtime_dependency 'bond'
+  s.add_runtime_dependency 'rbczmq'
+  s.add_runtime_dependency 'multi_json'
+  s.add_runtime_dependency 'mimemagic'
   s.add_runtime_dependency 'rails'
 end
