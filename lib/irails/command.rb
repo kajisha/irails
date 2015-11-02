@@ -10,7 +10,7 @@ module IRails
       @args.each do |arg|
         ipython_dir = $1 if arg =~ /\A--ipython-dir=(.*)\Z/
       end
-      @kernel_dir = File.join(File.expand_path(ipython_dir), 'kernels', 'ruby')
+      @kernel_dir = File.join(File.expand_path(ipython_dir), 'kernels', 'rails')
       @kernel_file = File.join(@kernel_dir, 'kernel.json')
       @irails_path = File.expand_path $0
     end
