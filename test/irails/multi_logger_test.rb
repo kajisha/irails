@@ -1,11 +1,11 @@
 require 'stringio'
 require 'test_helper'
-require 'iruby/logger'
+require 'irails/logger'
 
-class MultiLoggerTest < IRubyTest
+class MultiLoggerTest < IRailsTest
   def test_multilogger
     out, err = StringIO.new, StringIO.new
-    logger = IRuby::MultiLogger.new(Logger.new(out), Logger.new(err))
+    logger = IRails::MultiLogger.new(Logger.new(out), Logger.new(err))
     logger.warn 'You did a bad thing'
     assert_match 'WARN', out.string
     assert_match 'WARN', err.string

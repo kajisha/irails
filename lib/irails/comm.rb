@@ -1,4 +1,4 @@
-module IRuby
+module IRails
   # Comm is a new messaging system for bidirectional communication.
   # Both kernel and front-end listens for messages.
   class Comm

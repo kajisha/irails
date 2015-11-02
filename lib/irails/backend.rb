@@ -1,4 +1,4 @@
-module IRuby
+module IRails
   In, Out = [nil], [nil]
   ::In, ::Out = In, Out
 
@@ -11,7 +11,7 @@ module IRuby
 
       out = super
 
-      # TODO Add IRuby.cache_size which controls the size of the Out array
+      # TODO Add IRails.cache_size which controls the size of the Out array
       # and sets the oldest entries and _<n> variables to nil.
       if store_history
         b.local_variable_set("_#{Out.size}", out)

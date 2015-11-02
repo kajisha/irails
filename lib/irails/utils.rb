@@ -1,4 +1,4 @@
-module IRuby
+module IRails
   module Utils
     def convert(object, options)
       Display.convert(object, options)

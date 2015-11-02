@@ -2,9 +2,9 @@ require 'test_helper'
 require 'open3'
 require 'expect'
 
-class IntegrationTest < IRubyTest
+class IntegrationTest < IRailsTest
   def setup
-    @stdin, @stdout, @stderr, @process = Open3.popen3('bin/iruby')
+    @stdin, @stdout, @stderr, @process = Open3.popen3('bin/irails')
     expect 'In [', 30
     expect '1'
     expect ']:'

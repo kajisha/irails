@@ -1,5 +1,5 @@
-require 'iruby'
+require 'irails'
 require 'minitest/autorun'
 
-class IRubyTest < Minitest::Test
+class IRailsTest < Minitest::Test
 end

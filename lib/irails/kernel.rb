@@ -1,4 +1,4 @@
-module IRuby
+module IRails
   class Kernel
     RED = "\e[31m"
     WHITE = "\e[37m"
@@ -12,7 +12,7 @@ module IRuby
 
     def initialize(config_file)
       @config = MultiJson.load(File.read(config_file))
-      IRuby.logger.debug("IRuby kernel start with config #{@config}")
+      IRails.logger.debug("IRails kernel start with config #{@config}")
       Kernel.instance = self
 
       @session = Session.new(@config)
@@ -27,7 +27,7 @@ module IRuby
     def create_backend
       PryBackend.new
     rescue Exception => e
-      IRuby.logger.warn "Could not load PryBackend: #{e.message}\n#{e.backtrace.join("\n")}" unless LoadError === e
+      IRails.logger.warn "Could not load PryBackend: #{e.message}\n#{e.backtrace.join("\n")}" unless LoadError === e
       PlainBackend.new
     end
 
@@ -49,16 +49,16 @@ module IRuby
         send_status :idle
       end
     rescue Exception => e
-      IRuby.logger.debug "Kernel error: #{e.message}\n#{e.backtrace.join("\n")}"
+      IRails.logger.debug "Kernel error: #{e.message}\n#{e.backtrace.join("\n")}"
       @session.send(:publish, :error, error_message(e))
     end
 
     def kernel_info_request(msg)
       @session.send(:reply, :kernel_info_reply,
                     protocol_version: '5.0',
-                    implementation: 'iruby',
-                    banner: "IRuby #{IRuby::VERSION}",
-                    implementation_version: IRuby::VERSION,
+                    implementation: 'irails',
+                    banner: "IRails #{IRails::VERSION}",
+                    implementation_version: IRails::VERSION,
                     language_info: {
                       name: 'ruby',
                       version: RUBY_VERSION,
@@ -142,7 +142,7 @@ module IRuby
                     data: Display.display(result),
                     metadata: {})
     rescue Exception => e
-      IRuby.logger.warn "Inspection error: #{e.message}\n#{e.backtrace.join("\n")}"
+      IRails.logger.warn "Inspection error: #{e.message}\n#{e.backtrace.join("\n")}"
       @session.send(:reply, :inspect_reply, status: :error)
     end
 

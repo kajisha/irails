@@ -1,4 +1,4 @@
-module IRuby
+module IRails
   module Display
     class << self
       def convert(obj, options)
@@ -265,9 +265,9 @@ module IRuby
         obj.to_svg
       end
 
-      respond_to :to_iruby
+      respond_to :to_irails
       format do |obj|
-        obj.to_iruby
+        obj.to_irails
       end
 
       match {|obj| obj.respond_to?(:path) && File.readable?(obj.path) }

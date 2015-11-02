@@ -1,4 +1,4 @@
-module IRuby
+module IRails
   module LaTeX
     extend self
 

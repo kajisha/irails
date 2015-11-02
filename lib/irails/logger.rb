@@ -1,6 +1,6 @@
 require 'logger'
 
-module IRuby
+module IRails
   class << self
     attr_accessor :logger
   end

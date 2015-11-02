@@ -1,4 +1,4 @@
-module IRuby
+module IRails
   # IO-like object that publishes to 0MQ socket.
   class OStream
     attr_accessor :sync

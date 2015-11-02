@@ -1,4 +1,4 @@
-module IRuby
+module IRails
   class Session
     DELIM = '<IDS|MSG>'
 
@@ -18,7 +18,7 @@ module IRuby
           hb_socket.bind(connection % config['hb_port'])
           ZMQ.proxy(hb_socket, hb_socket)
         rescue Exception => e
-          IRuby.logger.fatal "Kernel heartbeat died: #{e.message}\n#{e.backtrace.join("\n")}"
+          IRails.logger.fatal "Kernel heartbeat died: #{e.message}\n#{e.backtrace.join("\n")}"
         end
       end
 
@@ -28,6 +28,12 @@ module IRuby
         raise 'Unknown signature scheme' unless config['signature_scheme'] =~ /\Ahmac-(.*)\Z/
         @hmac = OpenSSL::HMAC.new(config['key'], OpenSSL::Digest.new($1))
       end
+
+      FileUtils.cd rails_root
+      require './config/boot'
+      require './config/application'
+
+      Rails.application.require_environment!
     end
 
     # Build and send a message
@@ -61,14 +67,14 @@ module IRuby
              '{}',
              MultiJson.dump(content || {})]
       frames = ([*idents].compact.map(&:to_s) << DELIM << sign(msg)) + msg
-      IRuby.logger.debug "Sent #{frames.inspect}"
+      IRails.logger.debug "Sent #{frames.inspect}"
       ZMQ::Message(*frames)
     end
 
     def unserialize(msg)
       raise 'no message received' unless msg
       frames = msg.to_a.map(&:to_s)
-      IRuby.logger.debug "Received #{frames.inspect}"
+      IRails.logger.debug "Received #{frames.inspect}"
 
       i = frames.index(DELIM)
       idents, msg_list = frames[0..i-1], frames[i+1..-1]

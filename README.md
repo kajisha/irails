@@ -1,8 +1,8 @@
 ***The current master branch and gem version >= 0.2 are compatible with IPython3/Jupyter. If you require IPython2 support, please install an older gem version < 0.2 or use the branch ipython2***
 
-# IRuby
+# IRails
 
-This is a Ruby kernel for IPython/Jupyter and is part of [SciRuby](http://sciruby.com/). You can try it at [try.jupyter.org](http://try.jupyter.org/).
+This is a Ruby kernel for IPython/Jupyter and is part of [SciRuby](http://scirails.com/). You can try it at [try.jupyter.org](http://try.jupyter.org/).
 
 ![Screenshot](https://cloud.githubusercontent.com/assets/50754/7956845/3fa46df8-09e3-11e5-8641-f5b8669061b5.png)
 
@@ -17,16 +17,16 @@ At first install IPython/Jupyter. I recommend an installation using virtualenv.
 
 After that, install the Ruby gem.
 
-    gem install iruby
+    gem install irails
 
-Now you can run iruby with:
+Now you can run irails with:
 
-    iruby
-    iruby notebook
+    irails
+    irails notebook
 
-Take a look at the [example notebook](http://nbviewer.ipython.org/urls/raw.github.com/SciRuby/sciruby-notebooks/master/getting_started.ipynb)
-and the [collection of notebooks](https://github.com/SciRuby/sciruby-notebooks/) which includes a Dockerfile to create a containerized installation of iruby
-and other scientific gems. You can find the prebuild image at [dockerhub](https://registry.hub.docker.com/u/minad/sciruby-notebooks/).
+Take a look at the [example notebook](http://nbviewer.ipython.org/urls/raw.github.com/SciRuby/scirails-notebooks/master/getting_started.ipynb)
+and the [collection of notebooks](https://github.com/SciRuby/scirails-notebooks/) which includes a Dockerfile to create a containerized installation of irails
+and other scientific gems. You can find the prebuild image at [dockerhub](https://registry.hub.docker.com/u/minad/scirails-notebooks/).
 
 
 ### Required dependencies
@@ -41,8 +41,8 @@ See the [CONTRIBUTORS](CONTRIBUTORS) file.
 
 ### License
 
-Copyright © 2013-15, IRuby contributors and the Ruby Science Foundation.
+Copyright © 2013-15, Hiroshi Kajisha, IRuby contributors and the Ruby Science Foundation.
 
 All rights reserved.
 
-IRuby, along with [SciRuby](http://sciruby.com/), is licensed under the MIT license. See the [LICENSE](LICENSE) file for details.
+IRuby, along with [SciRuby](http://scirails.com/), is licensed under the MIT license. See the [LICENSE](LICENSE) file for details.
