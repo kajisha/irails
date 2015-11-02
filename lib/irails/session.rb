@@ -29,7 +29,6 @@ module IRails
         @hmac = OpenSSL::HMAC.new(config['key'], OpenSSL::Digest.new($1))
       end
 
-      FileUtils.cd rails_root
       require './config/boot'
       require './config/application'
 
