@@ -96,7 +96,7 @@ Try `ipython help` for more information.
       check_registered_kernel
       check_bundler {|e| STDERR.puts "Could not load bundler: #{e.message}" }
 
-      Kernel.exec('ipython', *@args)
+      ::Kernel.exec('ipython', *@args)
     end
 
     def check_registered_kernel
